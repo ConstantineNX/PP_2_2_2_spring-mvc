@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Car table</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 1000px;
+            margin-top: 40px;
+            table-layout: fixed;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+            white-space: normal;
+        }
+        td:nth-child(4),
+        td:nth-child(5),
+        td:nth-child(6),
+        td:nth-child(7) {
+            white-space: nowrap;
+            text-align: right;
+        }
+        th {
+            overflow-wrap: break-word;
+            white-space: normal;
+            background-color: gray;
+            color: white;
+        }
+        th:nth-child(1) { width: 5%; }
+        th:nth-child(2) { width: 19%; }
+        th:nth-child(3) { width: 19%; }
+        th:nth-child(4) { width: 12%; }
+        th:nth-child(5) { width: 15%; }
+        th:nth-child(6) { width: 15%; }
+        th:nth-child(7) { width: 15%; }
+        tr:nth-child(even) {
+            background-color: darkgray;
+        }
+    </style>
+</head>
+<body>
+    <h1>Таблица автомобилей</h1>
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Марка</th>
+            <th>Модель</th>
+            <th>Год выпуска</th>
+            <th>Объем двигателя (л)</th>
+            <th>Максимальная скорость (км/ч)</th>
+            <th>Цена (р)</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr th:each="carModels : ${carModels}">
+                <td th:text="${carModels.id}"></td>
+                <td th:text="${carModels.brand}"></td>
+                <td th:text="${carModels.model}"></td>
+                <td th:text="${carModels.yearOfIssue}"></td>
+                <td th:text="${carModels.engineVolume}"></td>
+                <td th:text="${carModels.maxSpeed}"></td>
+                <td th:text="${carModels.price}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
