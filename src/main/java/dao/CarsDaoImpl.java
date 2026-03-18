@@ -21,7 +21,7 @@ public class CarsDaoImpl implements CarsDao {
     @Override
     public List<CarModel> getCountCar(int count) {
         return cars.stream()
-                .limit(count)
+                .limit(Math.max(0, count))
                 .collect(Collectors.toList());
 
     }
