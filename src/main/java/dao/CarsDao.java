@@ -4,5 +4,5 @@ import model.CarModel;
 import java.util.List;
 
 public interface CarsDao {
-    List<CarModel> getCountCar(int count);
+    List<CarModel> getCountCar();
 }
